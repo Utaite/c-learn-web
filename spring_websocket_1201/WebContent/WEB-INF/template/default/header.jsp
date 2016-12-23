@@ -20,33 +20,35 @@
 		<div class="navbar navbar-default navbar-static-top">
 			<c:choose>
 				<c:when test="${sessionScope.role == null }">
-					<div class="navbar-collapse collapse ">
-						<ul class="nav navbar-nav">
-							<li><a href="index.html"><img
-									src="resources/img/main1.jpg" width="200px" height="100px"
-									align="top"></a></li>
-									</ul>
+					<div align="center">
+						<div class="navbar-collapse collapse " align="center">
+							<ul class="nav navbar-nav">
+								<li><a href="index.html"><img
+										src="resources/img/main1.jpg" width="200px" height="100px"
+										align="top"></a></li>
+								<li><a href="member">회원가입</a></li>
+								<li><a href="idsearch">id찾기</a></li>
+								<li><a href="pwsearch">pw찾기</a></li>
+							</ul>
+						</div>
 					</div>
 				</c:when>
-				<c:when test="${sessionScope.role eq \"admin\" }">
+				<c:when test="${sessionScope.role eq \"user\" }">
 					<div class="navbar-collapse collapse ">
 						<ul class="nav navbar-nav">
 							<li><a href="index.html"><img
 									src="resources/img/main1.jpg" width="200px" height="100px"
 									align="top"></a></li>
-							<li><a href="member">회원가입</a></li>
-							<li><a href="idsearch">id찾기</a></li>
-							<li><a href="pwsearch">pw찾기</a></li>
+							<li><a href="adminNoticeList?nowPage=1">공지사항</a></li>
 							<li><a href="registerDoginList">학습하러가기</a></li>
 							<li><a href="registerAddListView">수강신청</a></li>
-							<li><a href="adminNoticeList?nowPage=1">공지사항리스트</a></li>
 							<li><a href="adminFaqBoardList">FAQ</a></li>
 							<li><a href="momBoardList?nowPage=1">자유게시판</a></li>
 							<li><a href="parentdetail">마이페이지</a></li>
 						</ul>
 					</div>
 				</c:when>
-				<c:when test="${sessionScope.role eq \"user\" }">
+				<c:when test="${sessionScope.role eq \"admin\" }">
 					<div class="navbar-collapse collapse ">
 						<ul class="nav navbar-nav">
 							<li><a href="index.html"><img

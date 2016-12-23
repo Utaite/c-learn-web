@@ -53,18 +53,19 @@ public class LoginController {
 			msg = "관리자 로그인 성공";
 			session.setAttribute("uid", loginDao.getAdminNick(id));
 			session.setAttribute("p_num", loginDao.getAdminNum(id));
+			session.setAttribute("role", "admin");
 		} else if (parent_res > 0) {
 			msg = "사용자 로그인 성공";
 			session.setAttribute("uid", pvo.getP_nickname());
 			session.setAttribute("p_num", pvo.getP_num());
 			session.setAttribute("p_token", pvo.getP_token());
 			session.setAttribute("p_id", pvo.getP_id());
+			session.setAttribute("role", "user");
 			System.out.println("p_token:" + session.getAttribute("p_token"));
 		} else {
 			msg = "로그인 실패";
 			mav.setViewName("accessfail");
 		}
-		System.out.println("Log Message :" + msg);
 		return mav;
 	}
 

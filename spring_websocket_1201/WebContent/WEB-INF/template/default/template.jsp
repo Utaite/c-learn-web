@@ -16,7 +16,6 @@
 <link href="resources/css/jcarousel.css" rel="stylesheet" />
 <link href="resources/css/flexslider.css" rel="stylesheet" />
 <link href="resources/css/style.css" rel="stylesheet" />
-
 <!-- Theme skin -->
 <link href="resources/skins/default.css" rel="stylesheet" />
 
@@ -32,7 +31,7 @@
   <div id="wrap"> 
       <tiles:insertAttribute name="header" />
       <tiles:insertAttribute name="menu" />
-      <tiles:insertAttribute name="body" /> 
+      <div align="center"><tiles:insertAttribute name="body" /></div> 
       <tiles:insertAttribute name="footer" /> 
    </div>
 </div>

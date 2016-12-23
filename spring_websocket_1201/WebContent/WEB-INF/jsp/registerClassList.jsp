@@ -17,7 +17,7 @@
 <div>
 	<input type="hidden" value="${ct_num }" name="ct_num" id="ct_num">
 	<h3>강의 목록</h3>
-	<table>
+	<table class="table">
 		<tr>
 			<th>번호</th>
 			<th>강의명</th>

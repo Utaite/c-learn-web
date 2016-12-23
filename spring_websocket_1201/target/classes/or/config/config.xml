@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="or.vo.ParentVO" alias="parentvo" />
+		<typeAlias type="or.vo.AdminVO" alias="adminvo" />
+		<typeAlias type="or.vo.ContentVO" alias="contentvo" />
+		<typeAlias type="or.vo.ChapterVO" alias="chaptervo" />
+		<typeAlias type="or.vo.Cont_CateVO" alias="cont_catevo"/>
+		<typeAlias type="or.vo.PageVO" alias="pagevo"/>
+		<typeAlias type="or.vo.RegisterAddListVO" alias="registeraddlistvo"/>
+		<typeAlias type="or.vo.RegisterClassListVO" alias="registerclasslistvo"/>
+		<typeAlias type="or.vo.MyClassVO" alias="myclassvo"/>
+		<typeAlias type="or.vo.RegisterDoingVO" alias="registerdoingvo"/>
+		<typeAlias type="or.vo.RestVO" alias="restvo" />
+		<typeAlias type="or.vo.ChapEnrollVO" alias="chvo" />
+		<typeAlias type="or.vo.ContentEnrollVO" alias="contvo" /> 
+		<typeAlias type="or.vo.ChildVO" alias="childvo" />
+		<typeAlias type="or.vo.SearchNoticeVO" alias="searchnoticevo" />
+		<typeAlias type="or.vo.SearchFaqBoardVO" alias="searchfaqboardvo" />
+		<typeAlias type="or.vo.SearchParentVO" alias="searchparentvo" />
+		<typeAlias type="or.vo.SearchChildVO" alias="searchchildvo" />
+		<typeAlias type="or.vo.MomBoardVo" alias="momboardvo" />
+		<typeAlias type="or.vo.ReplyVo" alias="replyvo" />
+		<typeAlias type="or.vo.RegisterDoneVO" alias="registerdonevo" />
+		<typeAlias type="or.vo.DostarVO" alias="dostarvo" />
+	</typeAliases>
+</configuration>

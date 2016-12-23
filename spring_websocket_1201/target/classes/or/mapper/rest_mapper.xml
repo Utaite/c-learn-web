@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rest">
+	<update id="apiToken" parameterType="restvo">
+		update parent set p_token =
+		#{p_token} where p_id = #{p_id} and p_pw = #{p_pw}
+	</update>
+	<update id="apiTokenVideo" parameterType="restvo">
+		update video set
+		p_token = #{p_token} where p_token = #{before_token}
+	</update>
+	<select id="apiLogin" parameterType="restvo" resultType="restvo">
+		select
+		v_num, p_token from parent where p_id = #{p_id} and p_pw = #{p_pw}
+	</select>
+	<select id="apiVideo" parameterType="restvo" resultType="restvo">
+		select
+		v.v_ctime, c.ch_file from video v, chapter c where
+		v.v_num = #{v_num}
+		and v.p_token = #{p_token} and
+		v.ch_num = c.ch_num
+	</select>
+	<update id="apiUpdate" parameterType="restvo">
+		update parent set v_num =
+		#{v_num} where p_token = #{p_token}
+	</update>
+	<update id="apiFinish" parameterType="int">
+		update video set v_finish =
+		1 where v_num = #{v_num}
+	</update>
+	<update id="apiSave" parameterType="restvo">
+		update video set v_ctime =
+		#{v_ctime} where v_num = #{v_num}
+	</update>
+	<update id="apiConnectResult" parameterType="restvo">
+		update parent set
+		p_cresult = #{p_cresult} where p_token = #{p_token}
+	</update>
+	<update id="apiQuizResult" parameterType="restvo">
+		update parent set
+		p_qresult = #{p_qresult} where p_token = #{p_token}
+	</update>
+	<select id="apiWatchCresult" parameterType="int" resultType="String">
+		select p_cresult from parent where p_num = #{p_num}
+	</select>
+	<select id="apiWatchQresult" parameterType="int" resultType="String">
+		select p_qresult from parent where p_num = #{p_num}
+	</select>
+</mapper>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="momBoard">
+	<!-- 게시글 등록 -->
+	<insert id="momBoardAdd" parameterType="momboardvo">
+		insert into iboard
+		values(iboard_seq.nextVal,
+		#{ib_sub}, #{ib_cont}, 0, 0, sysdate,
+		#{p_num})
+	</insert>
+ 
+	<!-- 리스트 가져오기 -->
+	<select id="momBoardList1" resultType="momboardvo">
+		select ib_num, ib_sub, ib_hit, ib_recom, ib_date from (
+		select ib_num,
+		ib_sub, ib_hit, ib_recom,
+		to_char(ib_date, 'yyyy-mm-dd') ib_date,
+		rownum r from iboard) where <![CDATA[r <= 5]]>
+	</select> 
+
+	<!-- 검색하기 -->
+	<select id="momBoardListSearch" resultType="momboardvo"
+		parameterType="momboardvo">
+		select * from (select ib_num, ib_sub, ib_hit, ib_recom,
+		to_char(ib_date,'yyyy-mm-dd')
+		ib_date, rownum r from(select * from
+		iboard
+		<if test="searchValue != null">
+			<where>
+				<choose>
+					<when test="searchType == 1">
+						ib_sub like '%' || #{searchValue} || '%'
+					</when>
+					<when test="searchType == 2">
+						ib_cont like '%' || #{searchValue} || '%'
+					</when>
+					<otherwise />
+				</choose>
+			</where>
+		</if>
+		order by 1 desc))
+		where r
+		between #{start} and #{end} order by 1 desc
+	</select>
+
+	<!-- 게시판 목록 검색 카운트? -->
+	<select id="momBoardTotalSearch" resultType="int" parameterType="momboardvo">
+		select count(*) cnt
+		from (select ib_num, ib_sub, ib_hit, ib_recom,
+		to_char(ib_date,'yyyy-mm-dd')
+		ib_date, rownum r from(select * from
+		iboard
+		<if test="searchValue != null">
+			<where>
+				<choose>
+					<when test="searchType == 1">
+						ib_sub like '%' || #{searchValue} || '%'
+					</when>
+					<when test="searchType == 2">
+						ib_cont like '%' || #{searchValue} || '%'
+					</when>
+					<otherwise />
+				</choose>
+			</where>
+		</if>
+		order by 1 desc))
+	</select>
+
+	<!-- 기본 -->
+	<select id="momBoardList2" resultType="momboardvo"
+		parameterType="momboardvo">
+		select *
+		from (select ib_num, ib_sub, ib_hit,
+		to_char(ib_date,'yyyy-mm-dd')
+		ib_date, rownum r from(select * from
+		iboard
+		order by 1 desc) )
+		where r
+		between #{start} and #{end} order by 1
+		desc
+	</select>
+
+	<select id="momBoardTotal" resultType="int">
+		select count(*) cnt from
+		iboard
+	</select>
+
+
+
+	<!-- 게시판 상세페이지 -->
+	<select id="momBoardDetail" resultType="momboardvo"
+		parameterType="int">
+		select ib_sub, ib_cont, ib_date, ib_hit from iboard
+		where
+		ib_num = #{ib_num}
+	</select>
+
+	<!-- 게시판 조회수 증가 -->
+	<update id="momBoardUpdateHit" parameterType="int">
+		update iboard set
+		ib_hit = ib_hit + 1 where ib_num = #{ib_num}
+	</update>
+
+	<!-- 내용 수정 --> 
+	<update id="momBoardUpdate" parameterType="momboardvo">
+		update iboard set
+		ib_sub  
+		= #{ib_sub}, ib_cont = #{ib_cont} where ib_num =
+		#{ib_num}  
+	</update>
+
+	<!-- 게시판 삭제 -->
+	<delete id="momBoardDelete" parameterType="int">
+		delete from iboard
+		where
+		ib_num = #{ib_num}
+	</delete>
+	
+	<!-- 게시판 삭제 전에 삭제할 댓글 -->
+	<delete id="momBoardCommDelete" parameterType="int">
+		delete from icomm
+		where ib_num = #{ib_num}
+	</delete>
+</mapper> 

@@ -16,7 +16,6 @@
 <link href="resources/css/jcarousel.css" rel="stylesheet" />
 <link href="resources/css/flexslider.css" rel="stylesheet" />
 <link href="resources/css/style.css" rel="stylesheet" />
-
 <!-- Theme skin -->
 <link href="resources/skins/default.css" rel="stylesheet" />
 

@@ -36,6 +36,7 @@
 	<a href="idsearch">id찾기</a>
 	<a href="pwsearch">pw찾기</a>
 	<a href="registerDoginList">학습하러가기</a>
+	<a href="registerManagerList">학습관리</a>
 	<a
 		href="registerAddListView?p_id=${sessionScope.p_id }&p_token=${sessionScope.p_token }">수강신청</a>
 	<a href="adminNoticeForm">공지사항등록</a>

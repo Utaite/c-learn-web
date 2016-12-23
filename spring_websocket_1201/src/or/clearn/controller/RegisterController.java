@@ -32,7 +32,7 @@ public class RegisterController {
 
 	@RequestMapping(value = "/registerAddListLoad")
 	public ModelAndView registerAddListLoad(int cc_num) {
-		ModelAndView mav = new ModelAndView("registerAddListLoad");
+		ModelAndView mav = new ModelAndView("ajax/registerAddListLoad");
 		List<RegisterAddListVO> list = registerDao.registerAddList(cc_num);
 		mav.addObject("list", list);
 		System.out.println("list ct_num : " + list.get(0).getCt_num());
@@ -80,7 +80,7 @@ public class RegisterController {
 			float percent = ((float) vo.getCnt_cl_done() / (float) vo.getCnt_ch_num()) * 100;
 			vo.setPercent((int) percent);
 		}
-		ModelAndView mav = new ModelAndView("registerDoginList");
+		ModelAndView mav = new ModelAndView("ajax/registerDoginList");
 		mav.addObject("list", list);
 		return mav;
 	}
@@ -131,7 +131,7 @@ public class RegisterController {
 			float percent = ((float) vo.getCnt_cl_done() / (float) vo.getCnt_ch_num()) * 100;
 			vo.setPercent((int) percent);
 		}
-		ModelAndView mav = new ModelAndView("registerDoneList");
+		ModelAndView mav = new ModelAndView("ajax/registerDoneList");
 		mav.addObject("list", list);
 		return mav;
 	}

@@ -56,7 +56,7 @@ public class AdminController {
 				m = "<p style='color:red'> 아이디는 영문과 숫자만 입력이 가능합니다. </p>";
 			}
 		}
-		ModelAndView mav = new ModelAndView("idChk");
+		ModelAndView mav = new ModelAndView("ajax/idChk");
 		mav.addObject("res", m);
 		return mav;
 	}
@@ -73,7 +73,7 @@ public class AdminController {
 		} else {
 			m = "<p style='color:blue'> 사용 가능한 닉네임 입니다. </p>";
 		}
-		ModelAndView mav = new ModelAndView("nicknamechk");
+		ModelAndView mav = new ModelAndView("ajax/nicknamechk");
 		mav.addObject("res", m);
 		return mav;
 	}

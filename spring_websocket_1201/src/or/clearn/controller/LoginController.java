@@ -132,7 +132,7 @@ public class LoginController {
 		ParentVO vo = new ParentVO();
 		vo.setP_name(p_name);
 		vo.setP_mail(p_mail);
-		ModelAndView mav = new ModelAndView("idfindresult");
+		ModelAndView mav = new ModelAndView("ajax/idfindresult");
 		int search_res = loginDao.checkID(vo);
 		System.out.println("search_res : " + search_res);
 		String msg = null;
@@ -175,7 +175,7 @@ public class LoginController {
 		vo.setP_name(p_name);
 		vo.setP_mail(p_mail);
 		vo.setP_id(p_id);
-		ModelAndView mav = new ModelAndView("pwfindresult");
+		ModelAndView mav = new ModelAndView("ajax/pwfindresult");
 		int search_res = loginDao.checkPWD(vo);
 		String msg = null;
 		if (search_res > 0) {

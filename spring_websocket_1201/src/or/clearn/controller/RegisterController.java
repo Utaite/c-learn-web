@@ -43,7 +43,9 @@ public class RegisterController {
 	@RequestMapping(value = "registerAddListView")
 	public ModelAndView registerAddListView(HttpSession session) {
 		String p_id = (String) session.getAttribute("p_id");
-		String p_token = (String) session.getAttribute("p_token");
+		String p_token = registerDao.getp_token(p_id);
+		session.removeAttribute("p_token");
+		session.setAttribute("p_token", p_token);
 		ModelAndView mav = new ModelAndView();
 		if (p_id.equals(p_token)) {
 			mav.setViewName("index");
@@ -94,6 +96,7 @@ public class RegisterController {
 		vo.setCt_num(ct_num);
 		ModelAndView mav = new ModelAndView("registerClassList");
 		List<RegisterDoingVO> list = registerDao.getChaplist(vo);
+		System.out.println("*******"+list.get(0).getV_num());
 		SimpleDateFormat df = new SimpleDateFormat("yy-MM-dd");
 		Date date = new Date();
 		for (RegisterDoingVO v : list) {

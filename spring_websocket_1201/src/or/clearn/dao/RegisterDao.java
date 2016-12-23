@@ -56,4 +56,7 @@ public class RegisterDao {
 	public void contstarUpdate(DostarVO vo) {
 		ss.update("register.contstarUpdate", vo);
 	}
+	public String getp_token(String p_id) {
+		return ss.selectOne("register.getp_token", p_id);
+	}
 }

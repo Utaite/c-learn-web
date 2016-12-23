@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -28,12 +30,14 @@ public class RestController {
 	private RestDao dao;
 
 	@RequestMapping(value = "/api/token", method = RequestMethod.POST)
-	public View token(RestVO restvo) {
+	public View token(RestVO restvo, HttpSession session) {
 		dao.apiToken(restvo);
 		System.out.println();
 		System.out.println("token success");
 		System.out.println("p_id: " + restvo.getP_id() + " / p_pw: " + restvo.getP_pw());
 		System.out.println("p_token: " + restvo.getP_token() + " / before_token: " + restvo.getBefore_token());
+		session.removeAttribute("p_token");
+		session.setAttribute("p_token", restvo.getP_token());
 		return JsonView;
 	}
 
@@ -102,13 +106,15 @@ public class RestController {
 		return JsonView;
 	}
 
-	@RequestMapping(value = "/api/watchAndroid", method = RequestMethod.POST)
+	@RequestMapping(value = "/watchAndroid", method = RequestMethod.POST)
 	public ModelAndView watchAndroid(RestVO restvo, String msg) {
 		ModelAndView mav = new ModelAndView();
+		System.out.println("******" + restvo.getV_num());
 		dao.apiUpdate(restvo);
 		mav.setViewName("watchAndroid");
 		mav.addObject("msg", msg);
 		mav.addObject("p_token", restvo.getP_token());
+		System.out.println("mav: " + restvo.getP_token());
 		return mav;
 	}
 
@@ -117,25 +123,32 @@ public class RestController {
 		ModelAndView mav = new ModelAndView();
 		List<ConnectVO> list = new ArrayList<>();
 		ConnectVO connectVO = null;
-		StringTokenizer st = new StringTokenizer(dao.apiWatchCresult(p_num), "}");
-		while (st.hasMoreTokens()) {
-			String value1 = st.nextToken();
-			String value2 = value1.substring(value1.indexOf(":") + 1);
-			if (value1.contains("number")) {
-				connectVO = new ConnectVO();
-				connectVO.setNumber(Integer.parseInt(value2));
-			} else if (value1.contains("v_num")) {
-				connectVO.setV_num(Integer.parseInt(value2));
-			} else if (value1.contains("start_time")) {
-				connectVO.setStart_time(value2);
-			} else if (value1.contains("end_time")) {
-				connectVO.setEnd_time(value2);
-				list.add(connectVO);
+		String result = dao.apiWatchCresult(p_num);
+		if (result != null) {
+			StringTokenizer st = new StringTokenizer(result, "}");
+			while (st.hasMoreTokens()) {
+				String value1 = st.nextToken();
+				String value2 = value1.substring(value1.indexOf(":") + 1);
+				if (value1.contains("number")) {
+					connectVO = new ConnectVO();
+					connectVO.setNumber(Integer.parseInt(value2));
+				} else if (value1.contains("v_num")) {
+					connectVO.setV_num(Integer.parseInt(value2));
+				} else if (value1.contains("start_time")) {
+					connectVO.setStart_time(value2);
+				} else if (value1.contains("end_time")) {
+					connectVO.setEnd_time(value2);
+					list.add(connectVO);
+				}
 			}
+			Collections.reverse(list);
+			System.out.println("nn" + list);
+			mav.addObject("list", list);
+		} else {
+			System.out.println("n");
+			mav.addObject("list", null);
 		}
-		Collections.reverse(list);
-		mav.setViewName("watchCresult");
-		mav.addObject("list", list);
+		mav.setViewName("ajax/watchCresult");
 		return mav;
 	}
 
@@ -144,27 +157,32 @@ public class RestController {
 		ModelAndView mav = new ModelAndView();
 		List<QuizVO> list = new ArrayList<>();
 		QuizVO quizVO = null;
-		StringTokenizer st = new StringTokenizer(dao.apiWatchQresult(p_num), "}");
-		while (st.hasMoreTokens()) {
-			String value1 = st.nextToken();
-			String value2 = value1.substring(value1.indexOf(":") + 1);
-			if (value1.contains("number")) {
-				quizVO = new QuizVO();
-				quizVO.setNumber(Integer.parseInt(value2));
-			} else if (value1.contains("v_num")) {
-				quizVO.setV_num(Integer.parseInt(value2));
-			} else if (value1.contains("userAnswerList")) {
-				quizVO.setUserAnswerList(value2);
-			} else if (value1.contains("quizAnswerList")) {
-				quizVO.setQuizAnswerList(value2);
-			} else if (value1.contains("resultList")) {
-				quizVO.setResultList(value2);
-				list.add(quizVO);
+		String result = dao.apiWatchQresult(p_num);
+		if (result != null) {
+			StringTokenizer st = new StringTokenizer(result, "}");
+			while (st.hasMoreTokens()) {
+				String value1 = st.nextToken();
+				String value2 = value1.substring(value1.indexOf(":") + 1);
+				if (value1.contains("number")) {
+					quizVO = new QuizVO();
+					quizVO.setNumber(Integer.parseInt(value2));
+				} else if (value1.contains("v_num")) {
+					quizVO.setV_num(Integer.parseInt(value2));
+				} else if (value1.contains("userAnswerList")) {
+					quizVO.setUserAnswerList(value2);
+				} else if (value1.contains("quizAnswerList")) {
+					quizVO.setQuizAnswerList(value2);
+				} else if (value1.contains("resultList")) {
+					quizVO.setResultList(value2);
+					list.add(quizVO);
+				}
 			}
+			Collections.reverse(list);
+			mav.addObject("list", list);
+		} else {
+			mav.addObject("list", null);
 		}
-		Collections.reverse(list);
-		mav.setViewName("watchQresult");
-		mav.addObject("list", list);
+		mav.setViewName("ajax/watchQresult");
 		return mav;
 	}
 

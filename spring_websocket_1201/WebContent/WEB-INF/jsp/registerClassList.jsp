@@ -17,14 +17,16 @@
 <div>
 	<input type="hidden" value="${ct_num }" name="ct_num" id="ct_num">
 	<h3>강의 목록</h3>
+	<input type="button" value="퀴즈확인"
+		onclick="javascript:qpopupOpen(${sessionScope.p_num })"> <input
+		type="button" value="접속기록확인"
+		onclick="javascript:cpopupOpen(${sessionScope.p_num })">
 	<table class="table">
 		<tr>
 			<th>번호</th>
 			<th>강의명</th>
 			<th>수강일(날짜)</th>
 			<th>학습하기</th>
-			<th>퀴즈기록확인</th>
-			<th>접속기록확인</th>
 		</tr>
 		<c:forEach var="listv" items="${list }" varStatus="status">
 			<tr>
@@ -44,14 +46,8 @@
 						<input type="hidden" name="msg" value="새로운 수업이 시작되었어요!"> <input
 							type="hidden" name="v_num" value="${listv.v_num }"> <input
 							type="hidden" name="p_token" value="${sessionScope.p_token }">
-						<input type="submit" value="학습하기"
-							onclick="watchAndroid?v_num=${sessoinScope.v_num}&p_token=${sessionScope.p_token}">
+						<input type="submit" value="학습하기">
 					</form>
-				</td>
-				<td><input type="button" value="퀴즈확인"
-					onclick="javascript:qpopupOpen(${sessionScope.p_num })"></td>
-				<td><input type="button" value="접속기록확인"
-					onclick="javascript:cpopupOpen(${sessionScope.p_token })">
 				</td>
 			</tr>
 		</c:forEach>

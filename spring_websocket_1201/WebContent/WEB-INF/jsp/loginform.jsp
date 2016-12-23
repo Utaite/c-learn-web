@@ -14,13 +14,15 @@
 		<table>
 			<tr>
 				<td>User ID :</td>
-				<td><input type="text" name="id" id="id"/></td>
+				<td><input type="text" name="id" id="id" /></td>
 			</tr>
 			<tr>
 				<td>Password :</td>
-				<td><input type="password" name="pw" id="pw"/></td>
+				<td><input type="password" name="pw" id="pw" /></td>
 			</tr>
 			<tr>
+				<td><a href="idsearch">id찾기</a></td>
+				<td><a href="pwsearch">pw찾기</a></td>
 				<td colspan="2"><input type="submit" name="submit"
 					value="login" /></td>
 			</tr>

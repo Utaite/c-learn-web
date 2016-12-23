@@ -52,9 +52,9 @@
 		select ct_num from myclass where p_num = #{p_num} and cl_end > sysdate group by ct_num
 	</select>
 	<select id="getChapList" parameterType="registerdoingvo" resultType="registerdoingvo">
-		select cl.p_num p_num, cl.ct_num ct_num, cl.ch_num ch_num, cl.cl_done cl_done, cl.cl_date cl_date, cl.cl_dostar cl_dostar,
+		select v.v_num v_num, cl.p_num p_num, cl.ct_num ct_num, cl.ch_num ch_num, cl.cl_done cl_done, cl.cl_date cl_date, cl.cl_dostar cl_dostar,
     ch.ch_sub ch_sub 
-    from myclass cl, chapter ch where cl.p_num = #{p_num} and cl.ct_num = #{ct_num} and cl.ch_num=ch.ch_num order by ch.ch_num
+    from myclass cl, chapter ch, video v where cl.p_num = #{p_num} and cl.ct_num = #{ct_num} and cl.ch_num=ch.ch_num and v.ch_num=ch.ch_num order by ch.ch_num
 	</select>
 	<select id="registerDoneList" parameterType="registerdonevo" resultType="registerdonevo">
 		select distinct cc.cc_name cc_name, ct.ct_sub ct_sub, cl.p_num p_num, cl.ct_num, cl.cl_dostar, round(ct.ct_star, 1) ct_star
@@ -82,4 +82,7 @@
 	<update id="contstarUpdate" parameterType="dostarvo">
 		update content set CT_STAR=((CT_STAR * ct_starnum)+#{ct_star})/(ct_starnum+1), ct_starnum=ct_starnum+1 where ct_num = #{ct_num}
 	</update>
+	<select id="getp_token" parameterType="String" resultType="String">
+		select p_token from parent where p_id=#{p_id}
+	</select>
 </mapper>

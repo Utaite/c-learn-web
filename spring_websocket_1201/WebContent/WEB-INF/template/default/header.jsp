@@ -40,7 +40,7 @@
 									src="resources/img/main1.jpg" width="200px" height="100px"
 									align="top"></a></li>
 							<li><a href="adminNoticeList?nowPage=1">공지사항</a></li>
-							<li><a href="registerDoginList">학습하러가기</a></li>
+							<li><a href="registerManagerList">학습하러가기</a></li>
 							<li><a href="registerAddListView">수강신청</a></li>
 							<li><a href="adminFaqBoardList">FAQ</a></li>
 							<li><a href="momBoardList?nowPage=1">자유게시판</a></li>
@@ -60,6 +60,7 @@
 							<li><a href="adminParentList?nowPage=1">부모회원관리</a></li>
 							<li><a href="adminChildList?nowPage=1">자녀회원관리</a></li>
 							<li><a href="momBoardList?nowPage=1">자유게시판</a></li>
+							<li><a href="contChapForm">컨텐츠 등록</a>
 							<li><a href=""></a>
 						</ul>
 					</div>

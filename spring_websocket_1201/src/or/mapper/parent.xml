@@ -5,7 +5,7 @@
 <mapper namespace="parent">
 	<insert id="add" parameterType="parentvo">
 		insert into parent
-		values(parent_seq.nextVal,#{p_id},#{p_pw},#{p_mail},#{p_phone},#{p_name},#{p_addr},#{p_pic},sysdate,#{p_nickname},1,#{p_id},null)
+		values(parent_seq.nextVal,#{p_id},#{p_pw},#{p_mail},#{p_phone},#{p_name},#{p_addr},#{p_pic},sysdate,#{p_nickname},1,#{p_id},null, null, null)
 	</insert>
 	<select id="nickname" parameterType="String" resultType="int">
 		select

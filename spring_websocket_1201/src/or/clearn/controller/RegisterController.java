@@ -41,7 +41,9 @@ public class RegisterController {
 	}
 
 	@RequestMapping(value = "registerAddListView")
-	public ModelAndView registerAddListView(String p_id, String p_token) {
+	public ModelAndView registerAddListView(HttpSession session) {
+		String p_id = (String) session.getAttribute("p_id");
+		String p_token = (String) session.getAttribute("p_token");
 		ModelAndView mav = new ModelAndView();
 		if (p_id.equals(p_token)) {
 			mav.setViewName("index");

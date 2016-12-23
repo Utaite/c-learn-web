@@ -40,24 +40,21 @@
 					</c:when>
 				</c:choose>
 				<td>
-					<form method="post" action="api/watchAndroid">
+					<form method="post" action="watchAndroid">
 						<input type="hidden" name="msg" value="새로운 수업이 시작되었어요!"> <input
-							type="hidden" name="v_num"
-							value="<%=session.getAttribute("v_num")%>"> <input
-							type="hidden" name="p_token"
-							value="<%=session.getAttribute("p_token")%>"> <input
-							type="submit" value="학습하기">
+							type="text" name="v_num" value="${listv.v_num }"> <input
+							type="hidden" name="p_token" value="${sessionScope.p_token }">
+						<input type="submit" value="학습하기"
+							onclick="watchAndroid?v_num=${sessoinScope.v_num}&p_token=${sessionScope.p_token}">
 					</form>
 				</td>
-				<td>
-					<%-- <input type="hidden" name="p_num" value=""> --%> <input
-					type="button" value="퀴즈확인" onclick="javascript:qpopupOpen(7)">
-					<%-- <input type="button" value="퀴즈확인" onclick="javascript:cpopupOpen(<%=session.getAttribute("p_num")%>)"> --%>
-				</td>
+				<td><input type="button" value="퀴즈확인"
+					onclick="javascript:qpopupOpen(${sessionScope.p_num })"></td>
 				<td><input type="button" value="접속기록확인"
-					onclick="javascript:cpopupOpen(7)"> <%-- <input type="button" value="접속기록확인" onclick="javascript:qpopupOpen(<%=session.getAttribute("p_num")%>)"> --%>
+					onclick="javascript:cpopupOpen(${sessionScope.p_token })">
 				</td>
 			</tr>
 		</c:forEach>
+
 	</table>
 </div>

@@ -2,7 +2,7 @@
 	pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div>
-	<table>
+	<table class="table">
 		<thead>
 			<tr>
 				<th colspan="8"><h2>부모 회원 관리</h2></th>

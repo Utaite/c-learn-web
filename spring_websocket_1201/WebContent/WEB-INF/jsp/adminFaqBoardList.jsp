@@ -28,7 +28,7 @@
 <!--  jqEx12_listview -->
 <div>
 	<table>
-		<thead>
+		<thead class="table">
 			<tr>
 				<th><h2>FAQ °Ô½ÃÆÇ</h2></th>
 			</tr>

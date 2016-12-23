@@ -5,7 +5,7 @@
 	<h3>수강완료 강의</h3>
 	<input type="hidden" value="${p_num }" name="p_num"> <input
 		type="hidden" value="${ct_num }" name="ct_num">
-	<table>
+	<table class="table">
 		<tr>
 			<th>과목</th>
 			<th>컨텐츠</th>

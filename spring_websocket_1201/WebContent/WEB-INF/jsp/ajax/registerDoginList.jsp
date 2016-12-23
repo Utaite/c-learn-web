@@ -4,7 +4,7 @@
 <div>
 	<input type="hidden" value="${p_num }" name="p_num">
 	<h3>수강중인 강의</h3>
-	<table>
+	<table class="table">
 		<tr>
 			<th>과목</th>
 			<th>컨텐츠명</th>

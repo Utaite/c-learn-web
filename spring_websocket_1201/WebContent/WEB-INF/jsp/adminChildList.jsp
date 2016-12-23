@@ -10,7 +10,7 @@
 	}
 </script>
 <div>
-	<table>
+	<table class="table">
 		<input type="hidden" id="nowPage" name="nowPage" value="${nowPage}">
 		<thead>
 			<tr>

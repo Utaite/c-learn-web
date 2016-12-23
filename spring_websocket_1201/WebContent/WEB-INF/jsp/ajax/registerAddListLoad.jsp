@@ -56,7 +56,7 @@
 			type="hidden" value="${sessionScope.p_token }" name="p_token" id="p_token">
 		<input type="hidden" value="${sessionScope.p_num }" name="p_num"
 			id="p_num">
-		<table>
+		<table class="table">
 			<c:forEach var="listv" items="${list }">
 				<tr>
 					<td><input type="checkbox" name="ckd" value="${listv.ct_num }">${listv.ct_sub }</td>

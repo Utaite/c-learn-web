@@ -75,6 +75,7 @@ public class LoginController {
 		session.removeAttribute("p_num");
 		session.removeAttribute("p_token");
 		session.removeAttribute("p_id");
+		session.removeAttribute("role");
 		System.out.println("remove:" + session.getAttribute("p_token"));
 		return new ModelAndView("redirect:/index");
 	}

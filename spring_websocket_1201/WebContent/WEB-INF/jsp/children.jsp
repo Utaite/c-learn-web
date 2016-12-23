@@ -45,7 +45,7 @@
 			<tr style="border: none;">
 				<td height="50" align="right" colspan="2" style="border: none;">
 					<input type="submit" value="등록"> <input type="button"
-					value="취소" onclick="location='ciform'">
+					value="취소" onclick="location='parentdetail'">
 				</td>
 			</tr>
 		</table>

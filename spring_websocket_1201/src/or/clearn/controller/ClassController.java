@@ -34,7 +34,7 @@ public class ClassController {
 
 	@RequestMapping(value = "/classdetail")
 	public ModelAndView popup(int ct_num) {
-		ModelAndView mav = new ModelAndView("classdetail");
+		ModelAndView mav = new ModelAndView("ajax/classdetail");
 		ContentVO vo = contentDao.getdetail(ct_num);
 		List<ChapterVO> list = chapterDao.getlist(ct_num);
 		mav.addObject("vo", vo);

@@ -28,7 +28,7 @@
         			data: {p_num : p_num, ct_num_ary : ct_num_ary, p_token : p_token},
         			success:function(data){
         				if(confirm('수강신청 완료! 마이페이지로 이동하시겠습니까')){
-        					location.replace('registerDoginList');
+        					location.replace('registerManagerList');
         				}
         			},
         			error:function(jqXHR, textStatus, errorThrown){

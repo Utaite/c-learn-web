@@ -6,13 +6,6 @@
 <link href="resources/css/style.css" rel="stylesheet" />
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<script type="text/javascript">
-	function popupOpen() {
-		var popUrl = "classdetail?ct_num=3"; //팝업창에 출력될 페이지 URL
-		var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;"; //팝업창 옵션(optoin)
-		window.open(popUrl, "", popOption);
-	}
-</script>
 </head>
 <body>
 
@@ -26,6 +19,7 @@
 								<li><a href="index.html"><img
 										src="resources/img/main1.jpg" width="200px" height="100px"
 										align="top"></a></li>
+								<li><a href="loginform">로그인</a></li>
 								<li><a href="member">회원가입</a></li>
 								<li><a href="idsearch">id찾기</a></li>
 								<li><a href="pwsearch">pw찾기</a></li>
@@ -39,7 +33,7 @@
 							<li><a href="index.html"><img
 									src="resources/img/main1.jpg" width="200px" height="100px"
 									align="top"></a></li>
-							<li><a href="adminNoticeList?nowPage=1">공지사항</a></li>
+							<li><a href="noticeList?nowPage=1">공지사항</a></li>
 							<li><a href="registerManagerList">학습하러가기</a></li>
 							<li><a href="registerAddListView">수강신청</a></li>
 							<li><a href="adminFaqBoardList">FAQ</a></li>

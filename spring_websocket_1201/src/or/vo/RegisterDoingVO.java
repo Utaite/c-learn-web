@@ -3,7 +3,13 @@ package or.vo;
 public class RegisterDoingVO {
 	private int cnt_ch_num, cnt_cl_done, finish_date;
 	private String cc_name, ct_sub, ch_sub, cl_date;
-	private int p_num, ch_num, ct_num, cl_done, percent;
+	private int p_num, ch_num, ct_num, cl_done, percent, v_num;
+	public int getV_num() {
+		return v_num;
+	}
+	public void setV_num(int v_num) {
+		this.v_num = v_num;
+	}
 	private String cl_end;
 	public String getCl_date() {
 		return cl_date;

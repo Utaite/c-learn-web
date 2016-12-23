@@ -148,7 +148,7 @@ public class ChildController {
 		}
 		cvo.setC_img(oriFn);
 		childdao.addChild(cvo);
-		mav.setViewName("redirect:/ciform");
+		mav.setViewName("redirect:/parentdetail");
 		return mav;
 	}
 }

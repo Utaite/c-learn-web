@@ -31,21 +31,8 @@
 			<li>${sessionScope.uid }님반가워용^^<a href="logout">로그아웃 예제</a></li>
 		</c:otherwise>
 	</c:choose>
-	<a href="javascript:popupOpen()">열려라 팝업창</a>
-	<a href="member">회원가입</a>
-	<a href="idsearch">id찾기</a>
-	<a href="pwsearch">pw찾기</a>
-	<a href="registerDoginList">학습하러가기</a>
-	<a href="registerManagerList">학습관리</a>
-	<a
-		href="registerAddListView?p_id=${sessionScope.p_id }&p_token=${sessionScope.p_token }">수강신청</a>
-	<a href="adminNoticeForm">공지사항등록</a>
-	<a href="adminNoticeList?nowPage=1">공지사항리스트</a>
-	<a href="adminFaqBoardList">FAQ</a>
-	<a href="adminParentList?nowPage=1">부모회원관리</a>
-	<a href="adminChildList?nowPage=1">자녀회원관리</a>
-	<a href="momBoardList?nowPage=1">자유게시판</a>
-	<a href="parentdetail">마이페이지</a>
-	<a href="">안드로이드 연동 가자</a>
+	<div>
+		<img src="resources/img/index image.png">
+	</div>
 </body>
 </html>

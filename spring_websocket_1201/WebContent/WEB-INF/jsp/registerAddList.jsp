@@ -7,14 +7,12 @@
 		var $tab = $('div.tabMenu>.tabGroup>li');
 		var $sub = $('div.tabMenu>.subGroup>li');
 		var i = 0;
-		
+
 		$('#tab1').show();
 		$('#subTab1').load('registerAddListLoad?cc_num=3');
 		$('#subTab2').hide();
 		$('#subTab3').hide();
-		
-		
-		
+
 		$tab.click(function() {
 			i = $(this).index();
 			$sub.hide();
@@ -37,7 +35,7 @@
 	});
 </script>
 <div class="tabMenu">
-	<ul class="tabGroup">
+	<ul style="list-style: none;" class="tabGroup">
 		<li id="tab1"><a>한글</a></li>
 		<li id="tab2"><a>수학</a></li>
 		<li id="tab3"><a>영어</a></li>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myclass">
+	<insert id="insertclass" parameterType="myclassvo">
+		insert into myclass
+		values(myclass_seq.nextval, #{p_num}, #{ct_num}, #{ch_num}, 0, null,
+		0, sysdate, sysdate+#{ct_period})
+	</insert>
+	<insert id="insertvideo" parameterType="restvo">
+		insert into video values
+		(video_seq.nextVal, 0, 0, #{ch_num}, #{p_token})
+	</insert>
+	<select id="selectIdToken" parameterType="int" resultType="parentvo">
+		select p_id, p_token from parent where p_num = #{p_num}
+	</select>
+</mapper>

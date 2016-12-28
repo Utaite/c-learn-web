@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- vo = contentenrollvo -->
+
+<mapper namespace="content">
+	<!-- 게시글 등록 -->  
+	<insert id="enroll" parameterType="contvo">
+		insert into content
+		values(content_seq.nextval, #{cc_num}, #{ct_sub}, 0,
+		sysdate,#{ct_detail}, 0, 3, #{ct_period}) 
+	</insert>
+</mapper>  

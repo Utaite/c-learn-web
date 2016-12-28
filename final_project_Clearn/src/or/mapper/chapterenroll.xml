@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- vo = chapenrollvo --> 
+<mapper namespace="chapter">
+	<!-- 게시글 등록 -->    
+	<insert id="enroll2" parameterType="chvo">
+		insert into chapter
+		values(chapter_seq.nextval, content_seq.currVal, #{ch_sub}, #{ch_time}, #{ch_file})
+	</insert>    
+</mapper>     

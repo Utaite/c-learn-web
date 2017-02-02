@@ -2,7 +2,7 @@ CLearn(Web) [팀프로젝트]
 =
 ####유니티쨩과 함께하는 유아들을 위한 가상현실교육 - 웹
 
--  기간 : 2016.12 ~ 2016.12
+- 개발 기간 : 2016.12 ~ 2016.12
 
 - 사용 기술 : SpringMVC, SpringDI, MyBatis3, Maven, Tiles, JQuery, AJAX, JavaScript, JSTL, WebSocket, FirebaseCloudMessaging, EmailSend, Paging, ExcelDownload
 

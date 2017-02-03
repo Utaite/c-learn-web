@@ -10,6 +10,8 @@ CLearn(Web) [팀프로젝트]
 
 - 팀원 : KOSTA 141기 C조 [송명진, 김승용, 이지원, 조은진, 박규민, 한예지, 송정환]
 
+- 역할 : 안드로이드와 통신을 위한 REST API 개발, 안드로이드와 DB & FCM 연동
+
 - [출처][link]
 [link]: https://github.com/hiko1931/KostaCFinal
 

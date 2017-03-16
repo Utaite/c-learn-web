@@ -1,6 +1,6 @@
 CLearn(Web) [팀프로젝트]
 =
-####유니티쨩과 함께하는 유아들을 위한 가상현실교육 - 웹
+#### 유니티쨩과 함께하는 유아들을 위한 가상현실교육 - 웹
 
 - 개발 기간 : 2016.12 ~ 2016.12
 
@@ -12,8 +12,7 @@ CLearn(Web) [팀프로젝트]
 
 - 역할 : 안드로이드와 통신을 위한 REST API 개발, 안드로이드와 DB & FCM 연동
 
-- [출처][link]
-[link]: https://github.com/hiko1931/KostaCFinal
+- 출처 : https://github.com/hiko1931/KostaCFinal
 
 
 <img width="1000" height="500" src="/readme/image/c-learn-web-1.PNG"/>
